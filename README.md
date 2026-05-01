@@ -4,7 +4,7 @@ Philly-based, looking for my first full-time SWE role.
 
 ## What I shipped
 
-**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-blush.vercel.app)). Drop a PDF invoice, get vendor / line items / tax / total / due date back as JSON in about five seconds. No database, no auth, no logging of customer content. Next.js 16, Anthropic SDK, Zod.
+**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)). Drop a PDF invoice, get vendor / line items / tax / total / due date back as JSON in about five seconds. No database, no auth, no logging of customer content. Next.js 16, Anthropic SDK, Zod.
 
 **[TellSight](https://github.com/coreystevensdev/tellsight)** (live demo deploying shortly). Full-stack SaaS analytics for small businesses. Upload a CSV, get charts plus plain-English AI interpretation. Multi-tenant Postgres with RLS, Stripe billing, SSE streaming. The AI only ever sees computed statistics, never raw rows. Tested at unit, integration, and E2E layers across 283 test files.
 
