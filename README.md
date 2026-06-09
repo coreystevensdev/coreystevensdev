@@ -1,12 +1,12 @@
 # Hey, I'm Corey.
 
-Philly-based, looking for my first full-time SWE role.
+Philly-based software engineer. I build tools where the architecture enforces the privacy boundary: computed stats and structured outputs reach the model, never raw files or user content.
 
 ## What I shipped
 
 **[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)). Drop a PDF invoice, get vendor / line items / tax / total / due date back as JSON in about five seconds. No database, no auth, no logging of customer content. Next.js 16, Anthropic SDK, Zod.
 
-**[Tellsight](https://github.com/coreystevensdev/tellsight)** (live demo deploying shortly). Full-stack SaaS analytics for small businesses. Upload a CSV, get charts plus plain-English AI interpretation. Multi-tenant Postgres with RLS, Stripe billing, SSE streaming. The AI only ever sees computed statistics, never raw rows. Tested at unit, integration, and E2E layers (Vitest + Playwright).
+**[Tellsight](https://github.com/coreystevensdev/tellsight)**. Full-stack SaaS analytics for small businesses. Upload a CSV or connect QuickBooks, get charts plus plain-English AI interpretation delivered weekly by email digest. Multi-tenant Postgres with RLS, Stripe billing, SSE streaming, BullMQ workers. The AI only ever sees computed statistics, never raw rows. 1,526 tests across Vitest and Playwright; 5-stage CI pipeline. Runs locally in one command: `docker compose up`.
 
 ## Stack
 
@@ -18,7 +18,7 @@ A C# fantasy football management game I work on when the web stack gets boring. 
 
 ## What I'm looking for
 
-A team that ships often and trusts juniors with real work. The projects above lean into AI, but I'm just as interested in backend, infrastructure, or general full-stack roles where the system design or data layer is the hard part.
+A team that ships often and gives engineers real ownership. The projects above lean into AI, but I'm just as interested in backend, infrastructure, or full-stack roles where the system design or data layer is the hard part.
 
 ## Reach me
 
