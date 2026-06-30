@@ -2,7 +2,7 @@
 
 Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. Philadelphia / Wilmington / Princeton area or fully remote.
 
-Software engineer focused on AI systems and backend infrastructure. My work centers on where the model boundary sits: computed statistics and schema-validated responses go in, raw rows and unvalidated LLM output stay out. That constraint shapes everything from the database layer up.
+Software engineer (recent CS grad). Build AI tools where the model never sees raw user data.
 
 ## Projects
 
@@ -16,7 +16,7 @@ Under the hood: three-stage curation pipeline (compute stats, score by relevance
 
 **AI / LLM**: Anthropic SDK, prompt engineering, structured output validation, eval harnesses (faithfulness / completeness / legal posture), agent design, SSE streaming, RAG patterns
 
-**Backend**: TypeScript, Node.js, Express 5, PostgreSQL, Redis, BullMQ, REST APIs, multi-tenant architecture, row-level security
+**Backend**: TypeScript, Node.js, Express 19, Express 5, PostgreSQL, Redis, BullMQ, REST APIs, multi-tenant architecture, row-level security
 
 **Frontend**: Next.js 16, React 19, Tailwind CSS, Playwright E2E
 
