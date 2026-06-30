@@ -1,8 +1,8 @@
 # Hey, I'm Corey.
 
-Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. Philadelphia metro area, remote and is open for relocation..
+Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. Open to remote and on-site, no location preference.
 
-AI / software engineer (recent CS grad). I build production LLM systems where inputs are structured and validated -- raw user data never reaches the model.
+Software engineer (CS, 2025). I build production LLM systems where model inputs are structured and validated -- raw user data never reaches the model.
 
 ## Projects
 
