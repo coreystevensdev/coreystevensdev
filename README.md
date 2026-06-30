@@ -1,24 +1,26 @@
 # Hey, I'm Corey.
 
-Philly-based software engineer. I build tools where the architecture enforces the privacy boundary: computed stats and structured outputs reach the model, never raw files or user content.
+Philly-based software engineer with a focus on AI tooling and systems design. I care about where the model's boundary is: computed outputs, schema-validated responses, and structured context go in; raw user content and unvalidated LLM output stay out. That constraint shapes every design decision in my work.
 
 ## What I shipped
 
-**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)). Drop a PDF invoice, get vendor / line items / tax / total / due date back as JSON in about five seconds. No database, no auth, no logging of customer content. Next.js 16, Anthropic SDK, Zod.
+**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)) extracts structured data from PDF invoices using the Anthropic SDK with zero retention. Drop a PDF, get vendor / line items / tax / total / due date as JSON in about five seconds. No database, no auth, no stored content. Zod validates LLM output at the schema boundary so a malformed response fails loudly instead of corrupting downstream data. Next.js 16 + Anthropic SDK + Zod.
 
-**[Tellsight](https://github.com/coreystevensdev/tellsight)**. Full-stack SaaS analytics for small businesses. Upload a CSV or connect QuickBooks, get charts plus plain-English AI interpretation delivered weekly by email digest. Multi-tenant Postgres with RLS, Stripe billing, SSE streaming, BullMQ workers. The AI only ever sees computed statistics, never raw rows. 1,526 tests across Vitest and Playwright; 5-stage CI pipeline. Runs locally in one command: `docker compose up`.
+**[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)) is a full-stack SaaS analytics platform for small business owners. Upload a CSV or connect QuickBooks via OAuth, get charts plus plain-English AI interpretation delivered as a weekly email digest with week-over-week longitudinal context. Multi-tenant Postgres with row-level security, Stripe billing, SSE streaming, BullMQ workers.
+
+The AI only ever sees computed statistics from a three-stage curation pipeline, never raw rows. The Anthropic SDK sits behind an in-house provider seam (retries, circuit breaker, cost gate, prompt caching) rather than a framework wrapper; the architecture decision is in an ADR. An offline eval harness grades summaries on faithfulness, completeness, and legal posture. A separate agent tier generates structured proposals with severity tiers and a routing gate that decides auto-notify vs. human approval based on confidence and financial impact. 1,635 tests (Vitest + Playwright); 5-stage GitHub Actions CI.
 
 ## Stack
 
-TypeScript / Next.js / Postgres / Drizzle / Docker / Vitest / Playwright / Anthropic SDK
+TypeScript / Node.js / Next.js 16 / React 19 / Express 5 / PostgreSQL 18 / Redis / BullMQ / Drizzle ORM / Docker / Anthropic SDK / Zod / Vitest / Playwright / GitHub Actions
 
 ## On the side
 
-A C# fantasy football management game I work on when the web stack gets boring. Generally drawn to tools that respect their users' data and systems where the architecture is the interesting part.
+A C# fantasy football management game I work on when the web stack gets boring. Generally drawn to systems where the architecture is the interesting problem.
 
 ## What I'm looking for
 
-A team that ships often and gives engineers real ownership. The projects above lean into AI, but I'm just as interested in backend, infrastructure, or full-stack roles where the system design or data layer is the hard part.
+A team that ships real product and trusts engineers to make technical decisions. The AI tooling work above is where I want to go, but I'm equally interested in backend, data-layer, or full-stack roles where the system design or data model is the hard part. Open to the Philadelphia / Wilmington / Princeton corridor or fully remote.
 
 ## Reach me
 
