@@ -10,9 +10,17 @@ Philly-based software engineer with a focus on AI tooling and systems design. I 
 
 The AI only ever sees computed statistics from a three-stage curation pipeline, never raw rows. The Anthropic SDK sits behind an in-house provider seam (retries, circuit breaker, cost gate, prompt caching) rather than a framework wrapper; the architecture decision is in an ADR. An offline eval harness grades summaries on faithfulness, completeness, and legal posture. A separate agent tier generates structured proposals with severity tiers and a routing gate that decides auto-notify vs. human approval based on confidence and financial impact. 1,635 tests (Vitest + Playwright); 5-stage GitHub Actions CI.
 
-## Stack
+## Skills
 
-TypeScript / Node.js / Next.js 16 / React 19 / Express 5 / PostgreSQL 18 / Redis / BullMQ / Drizzle ORM / Docker / Anthropic SDK / Zod / Vitest / Playwright / GitHub Actions
+**AI / LLM**: Anthropic SDK, prompt engineering, structured output validation, eval harnesses (faithfulness / completeness / legal posture), agent design, SSE streaming, RAG patterns
+
+**Backend**: TypeScript, Node.js, Express 5, PostgreSQL, Redis, BullMQ, REST APIs, multi-tenant architecture, row-level security
+
+**Frontend**: Next.js 16, React 19, Tailwind CSS, Playwright E2E
+
+**Tooling**: Docker, GitHub Actions CI/CD, Drizzle ORM, Vitest, Zod, pnpm workspaces, Turborepo
+
+**Languages**: TypeScript, JavaScript, SQL, C#
 
 ## On the side
 
@@ -20,7 +28,7 @@ A C# fantasy football management game I work on when the web stack gets boring. 
 
 ## What I'm looking for
 
-A team that ships real product and trusts engineers to make technical decisions. The AI tooling work above is where I want to go, but I'm equally interested in backend, data-layer, or full-stack roles where the system design or data model is the hard part. Open to the Philadelphia / Wilmington / Princeton corridor or fully remote.
+Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. The AI tooling work above is the direction I want to go. I'm strongest in TypeScript / Node.js backend systems with LLM integration, but equally comfortable in data-layer, infrastructure, or product-focused full-stack roles where the system design is the hard part. Open to the Philadelphia / Wilmington / Princeton corridor or fully remote.
 
 ## Reach me
 
