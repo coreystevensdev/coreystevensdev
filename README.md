@@ -1,14 +1,16 @@
 # Hey, I'm Corey.
 
-Philly-based software engineer with a focus on AI tooling and systems design. I care about where the model's boundary is: computed outputs, schema-validated responses, and structured context go in; raw user content and unvalidated LLM output stay out. That constraint shapes every design decision in my work.
+Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. Philadelphia / Wilmington / Princeton area or fully remote.
 
-## What I shipped
+Software engineer focused on AI systems and backend infrastructure. My work centers on where the model boundary sits: computed statistics and schema-validated responses go in, raw rows and unvalidated LLM output stay out. That constraint shapes everything from the database layer up.
 
-**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)) extracts structured data from PDF invoices using the Anthropic SDK with zero retention. Drop a PDF, get vendor / line items / tax / total / due date as JSON in about five seconds. No database, no auth, no stored content. Zod validates LLM output at the schema boundary so a malformed response fails loudly instead of corrupting downstream data. Next.js 16 + Anthropic SDK + Zod.
+## Projects
 
-**[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)) is a full-stack SaaS analytics platform for small business owners. Upload a CSV or connect QuickBooks via OAuth, get charts plus plain-English AI interpretation delivered as a weekly email digest with week-over-week longitudinal context. Multi-tenant Postgres with row-level security, Stripe billing, SSE streaming, BullMQ workers.
+**[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)) -- AI-powered analytics SaaS for small business owners. Upload a CSV or connect QuickBooks via OAuth, get charts and a plain-English AI interpretation delivered weekly with longitudinal context built from prior digests.
 
-The AI only ever sees computed statistics from a three-stage curation pipeline, never raw rows. The Anthropic SDK sits behind an in-house provider seam (retries, circuit breaker, cost gate, prompt caching) rather than a framework wrapper; the architecture decision is in an ADR. An offline eval harness grades summaries on faithfulness, completeness, and legal posture. A separate agent tier generates structured proposals with severity tiers and a routing gate that decides auto-notify vs. human approval based on confidence and financial impact. 1,635 tests (Vitest + Playwright); 5-stage GitHub Actions CI.
+Under the hood: three-stage curation pipeline (compute stats, score by relevance, assemble prompt), Anthropic SDK behind an in-house provider seam (retries, circuit breaker, cost gate, prompt caching), an agent tier that generates structured proposals with severity levels and routes each one to auto-notify or human approval based on confidence and financial impact, and an offline eval harness grading summaries on faithfulness, completeness, and legal posture. Multi-tenant Postgres with row-level security, Stripe billing, SSE streaming, BullMQ workers. 1,635 tests (Vitest + Playwright); 5-stage GitHub Actions CI.
+
+**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)) -- zero-retention PDF invoice extraction. Drop an invoice, get structured JSON (vendor, line items, tax, total, due date) in about five seconds. Zod validates LLM output at the schema boundary so a malformed response fails loudly instead of silently corrupting data. No database, no stored content. Next.js 16 + Anthropic SDK + Zod.
 
 ## Skills
 
@@ -25,10 +27,6 @@ The AI only ever sees computed statistics from a three-stage curation pipeline, 
 ## On the side
 
 A C# fantasy football management game I work on when the web stack gets boring. Generally drawn to systems where the architecture is the interesting problem.
-
-## What I'm looking for
-
-Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. The AI tooling work above is the direction I want to go. I'm strongest in TypeScript / Node.js backend systems with LLM integration, but equally comfortable in data-layer, infrastructure, or product-focused full-stack roles where the system design is the hard part. Open to the Philadelphia / Wilmington / Princeton corridor or fully remote.
 
 ## Reach me
 
