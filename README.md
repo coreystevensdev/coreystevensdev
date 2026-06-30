@@ -16,7 +16,7 @@ Under the hood: three-stage curation pipeline (compute stats, score by relevance
 
 **AI / LLM**: Anthropic SDK, prompt engineering, structured output validation, eval harnesses (faithfulness / completeness / legal posture), agent design, SSE streaming, RAG patterns
 
-**Backend**: TypeScript, Node.js, Express 19, Express 5, PostgreSQL, Redis, BullMQ, REST APIs, multi-tenant architecture, row-level security
+**Backend**: TypeScript, Node.js, Express 5, PostgreSQL, Redis, BullMQ, REST APIs, multi-tenant architecture, row-level security
 
 **Frontend**: Next.js 16, React 19, Tailwind CSS, Playwright E2E
 
