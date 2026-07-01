@@ -2,8 +2,6 @@
 
 Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. Open to remote and on-site, no location preference.
 
-Software engineer (CS, 2025). I build production LLM systems where model inputs are structured and validated -- raw user data never reaches the model.
-
 ## Projects
 
 **[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)) -- AI-powered analytics SaaS for small business owners. Upload a CSV or connect QuickBooks via OAuth, get charts and a plain-English AI interpretation delivered weekly with longitudinal context built from prior digests.
