@@ -12,7 +12,7 @@ CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScr
 
 **[SteamBot](https://github.com/coreystevensdev/steambot):** Agentic NFL betting research. Removes bookmaker vig from Pinnacle sharp lines to derive no-vig fair probabilities, surfaces closing line value opportunities via Claude forced tool call, LangGraph HITL approval gate before bet slip prep. Stripe billing. 27 tests.
 
-**[TitleTrace](https://github.com/coreystevensdev/titletrace):** LangGraph property title agent for PA and NJ. Parallel Send API fan-out across 6 data sources (FEMA NFHL, Philadelphia OPA, ATTOM Data), Claude synthesis via forced tool call. 29 tests.
+**[TitleTrace](https://github.com/coreystevensdev/titletrace):** LangGraph property title agent for PA and NJ. Parallel Send API fan-out across 6 data sources (FEMA NFHL, Philadelphia OPA, ATTOM Data), Claude synthesis via forced tool call. 33 tests.
 
 **[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)): Multi-tenant analytics SaaS for small businesses. Three-stage curation pipeline (compute stats, score by relevance, assemble prompt), SSE streaming, BullMQ weekly digest, offline eval harness, Stripe billing, row-level security. 1,628 Vitest tests + Playwright E2E.
 
@@ -20,7 +20,7 @@ CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScr
 
 **[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)): Zero-retention PDF invoice extraction. Next.js 16, Anthropic SDK, per-field reasoning tooltips, Zod validation at the SDK boundary. No database, no stored content by design.
 
-**[bondcalc](https://github.com/coreystevensdev/bondcalc):** Go bond calculator. YTM via Newton-Raphson iteration, Macaulay and modified duration. JWT auth, distroless container, AWS ECS Fargate + Terraform. 15 tests.
+**[bondcalc](https://github.com/coreystevensdev/bondcalc):** Go bond calculator. YTM via Newton-Raphson iteration, Macaulay and modified duration. JWT auth, distroless container, AWS ECS Fargate + Terraform. 18 tests.
 
 **[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer):** ASP.NET Core 8 REST API. MediatR CQRS, drift detection, rebalancing order generation. TestContainers integration tests hit a real PostgreSQL container. EC2 + Terraform, GitHub Actions OIDC (no stored AWS credentials). 19 tests.
 
