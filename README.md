@@ -1,31 +1,45 @@
-# Hey, I'm Corey.
+# Corey Stevens
 
-Actively looking for **AI Engineer**, **Software Engineer**, or **Full-Stack Engineer** roles. Open to remote and on-site, no location preference.
+CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Projects
 
-**[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)) -- AI-powered analytics SaaS for small business owners. Upload a CSV or connect QuickBooks via OAuth, get charts and a plain-English AI interpretation delivered weekly with longitudinal context built from prior digests.
+**AI / LLM**
 
-Under the hood: three-stage curation pipeline (compute stats, score by relevance, assemble prompt), Anthropic SDK behind an in-house provider seam (retries, circuit breaker, cost gate, prompt caching), an agent tier that generates structured proposals with severity levels and routes each one to auto-notify or human approval based on confidence and financial impact, and an offline eval harness grading summaries on faithfulness, completeness, and legal posture. Multi-tenant Postgres with row-level security, Stripe billing, SSE streaming, BullMQ workers. 1,635 tests (Vitest + Playwright), curation-pipeline math the most heavily covered.
+**[TaxCite](https://github.com/coreystevensdev/taxcite):** Agentic RAG over 14 IRS publications. LangGraph state machine, pgvector retrieval, Voyage AI embeddings, LangSmith tracing, Ragas eval (faithfulness / answer relevancy / context precision). HITL interrupt before generation. 38 tests.
 
-**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)) -- zero-retention PDF invoice extraction. Drop an invoice, get structured JSON (vendor, line items, tax, total, due date) in about five seconds. Zod validates LLM output at the schema boundary so a malformed response fails loudly instead of silently corrupting data. No database, no stored content. Next.js 16 + Anthropic SDK + Zod.
+**[SteamBot](https://github.com/coreystevensdev/steambot):** Agentic NFL betting research. Removes bookmaker vig from Pinnacle sharp lines to derive no-vig fair probabilities, surfaces closing line value opportunities via Claude forced tool call, LangGraph HITL approval gate before bet slip prep. Stripe billing. 27 tests.
 
-## Skills
+**[TitleTrace](https://github.com/coreystevensdev/titletrace):** LangGraph property title agent for PA and NJ. Parallel Send API fan-out across 6 data sources (FEMA NFHL, Philadelphia OPA, ATTOM Data), Claude synthesis via forced tool call. 29 tests.
 
-**AI / LLM**: Anthropic SDK, prompt engineering, structured output validation, eval harnesses (faithfulness / completeness / legal posture), agent design, SSE streaming, RAG patterns
+**[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)): Multi-tenant analytics SaaS for small businesses. Three-stage curation pipeline (compute stats, score by relevance, assemble prompt), SSE streaming, BullMQ weekly digest, offline eval harness, Stripe billing, row-level security. 1,628 Vitest tests + Playwright E2E.
 
-**Backend**: TypeScript, Node.js, Express 5, PostgreSQL, Redis, BullMQ, REST APIs, multi-tenant architecture, row-level security
+**SWE / APIs**
 
-**Frontend**: Next.js 16, React 19, Tailwind CSS, Playwright E2E
+**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live demo](https://invoiceflow-cs.vercel.app)): Zero-retention PDF invoice extraction. Next.js 16, Anthropic SDK, per-field reasoning tooltips, Zod validation at the SDK boundary. No database, no stored content by design.
 
-**Tooling**: Docker, GitHub Actions CI/CD, Drizzle ORM, Vitest, Zod, pnpm workspaces, Turborepo
+**[bondcalc](https://github.com/coreystevensdev/bondcalc):** Go bond calculator. YTM via Newton-Raphson iteration, Macaulay and modified duration. JWT auth, distroless container, AWS ECS Fargate + Terraform. 15 tests.
 
-**Languages**: TypeScript, JavaScript, SQL, C#
+**[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer):** ASP.NET Core 8 REST API. MediatR CQRS, drift detection, rebalancing order generation. TestContainers integration tests hit a real PostgreSQL container. EC2 + Terraform, GitHub Actions OIDC (no stored AWS credentials). 19 tests.
 
-## On the side
+**[titlerate-java](https://github.com/coreystevensdev/titlerate-java) / [titlerate-dotnet](https://github.com/coreystevensdev/titlerate-dotnet):** Title insurance premium calculators. Spring Boot 3.3 + Spring Security JWT (Java) and ASP.NET Core 9 Minimal API + EF Core (C#). Tiered rate schedules for PA and NJ, JWT auth, PostgreSQL.
 
-A C# fantasy football management game I work on when the web stack gets boring. Generally drawn to systems where the architecture is the interesting problem.
+**[rolling-cost-cap](https://github.com/coreystevensdev/rolling-cost-cap):** Published Python library on PyPI. Rolling-median anomaly cap for LLM and metered API calls. Three independent layers: rolling median, absolute ceiling, monthly budget. Zero dependencies, thread-safe, fully typed. 27 tests.
 
-## Reach me
+## Stack
+
+**AI:** LangGraph, LangSmith, Anthropic SDK, pgvector, Voyage AI, Ragas, RAG, HITL, SSE streaming, eval harnesses
+
+**Languages:** Python, TypeScript, Go, Java, C#
+
+**Backend:** FastAPI, Express 5, Spring Boot 3, ASP.NET Core 9, Node.js
+
+**Data:** PostgreSQL, Redis, BullMQ, SQLAlchemy, EF Core, Drizzle ORM
+
+**Infra:** AWS ECS Fargate, Terraform, Docker, GitHub Actions OIDC, Helm
+
+**Testing:** pytest + respx, Vitest + Playwright, TestContainers, xUnit, Ragas
+
+## Contact
 
 [LinkedIn](https://www.linkedin.com/in/coreystevensdev/) · cstevens3446@gmail.com
