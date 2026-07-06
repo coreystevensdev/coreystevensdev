@@ -1,5 +1,7 @@
 # Corey Stevens
 
+![GitHub Stats](https://github-readme-stats.vercel.app/api?username=coreystevensdev&show_icons=true&theme=default&count_private=true&hide=stars)
+
 CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Projects
@@ -22,7 +24,7 @@ CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScr
 
 **[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer):** ASP.NET Core 8 REST API. MediatR CQRS, drift detection, rebalancing order generation. TestContainers integration tests hit a real PostgreSQL container. EC2 + Terraform, GitHub Actions OIDC (no stored AWS credentials). 19 tests.
 
-**[titlerate-java](https://github.com/coreystevensdev/titlerate-java) / [titlerate-dotnet](https://github.com/coreystevensdev/titlerate-dotnet):** Title insurance premium calculators. Spring Boot 3.3 + Spring Security JWT (Java) and ASP.NET Core 9 Minimal API + EF Core (C#). Tiered rate schedules for PA and NJ, JWT auth, PostgreSQL.
+**[titlerate-java](https://github.com/coreystevensdev/titlerate-java) / [titlerate-dotnet](https://github.com/coreystevensdev/titlerate-dotnet):** Title insurance premium calculators. Spring Boot 3.3 + Spring Security JWT (Java) and ASP.NET Core 9 Minimal API + EF Core (C#). Multi-tier bracket accumulation for state-filed PA and NJ rate schedules, JWT auth, PostgreSQL.
 
 **[rolling-cost-cap](https://github.com/coreystevensdev/rolling-cost-cap):** Published Python library on PyPI. Rolling-median anomaly cap for LLM and metered API calls. Three independent layers: rolling median, absolute ceiling, monthly budget. Zero dependencies, thread-safe, fully typed. 27 tests.
 
