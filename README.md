@@ -1,7 +1,5 @@
 # Corey Stevens
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=coreystevensdev&show_icons=true&theme=default&count_private=true&hide=stars)
-
 CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Projects
