@@ -10,9 +10,9 @@ CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScr
 
 **[Fairline](https://github.com/coreystevensdev/fairline):** Agentic NFL/NBA/MLB/NHL betting research. Removes bookmaker vig from Pinnacle sharp lines to derive no-vig fair probabilities, surfaces closing line value opportunities via Claude forced tool call, LangGraph HITL approval gate before bet slip prep. Stripe billing. 189 tests.
 
-**[TitleTrace](https://github.com/coreystevensdev/titletrace):** LangGraph property title agent for PA and NJ. Parallel Send API fan-out across 6 data sources (FEMA NFHL, Philadelphia OPA, ATTOM Data), Claude synthesis via forced tool call. 40 tests.
+**[TitleTrace](https://github.com/coreystevensdev/titletrace):** LangGraph property title agent for PA and NJ. Parallel Send API fan-out across parcel, tax, lien, and zoning data (Philadelphia OPA, ATTOM Data); a FEMA flood-zone client is implemented but not yet wired into the graph. Claude synthesis via forced tool call. 40 tests.
 
-**[Tellsight](https://github.com/coreystevensdev/tellsight):** Multi-tenant analytics SaaS for small businesses. Three-stage curation pipeline (compute stats, score by relevance, assemble prompt), SSE streaming, BullMQ weekly digest, offline eval harness, Stripe billing, row-level security. 1,628 Vitest tests + Playwright E2E.
+**[Tellsight](https://github.com/coreystevensdev/tellsight):** Multi-tenant analytics SaaS for small businesses. Three-stage curation pipeline (compute stats, score by relevance, assemble prompt), SSE streaming, BullMQ weekly digest, offline eval harness, Stripe billing, row-level security. 1,671 Vitest tests + Playwright E2E.
 
 **SWE / APIs**
 
