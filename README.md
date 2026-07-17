@@ -8,11 +8,11 @@ CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScr
 
 **AI / LLM**
 
-**[TaxCite](https://github.com/coreystevensdev/taxcite):** Agentic RAG over 14 IRS publications. LangGraph state machine, pgvector retrieval, Voyage AI embeddings, LangSmith tracing, Ragas eval (faithfulness / answer relevancy / context precision). HITL interrupt before generation. 38 tests.
+**[TaxCite](https://github.com/coreystevensdev/taxcite):** Agentic RAG over 14 IRS publications. LangGraph state machine, pgvector retrieval, Voyage AI embeddings, LangSmith tracing, Ragas eval (faithfulness / answer relevancy / context precision). HITL interrupt before generation. 62 tests.
 
-**[SteamBot](https://github.com/coreystevensdev/steambot):** Agentic NFL betting research. Removes bookmaker vig from Pinnacle sharp lines to derive no-vig fair probabilities, surfaces closing line value opportunities via Claude forced tool call, LangGraph HITL approval gate before bet slip prep. Stripe billing. 27 tests.
+**[Fairline](https://github.com/coreystevensdev/fairline):** Agentic NFL/NBA/MLB/NHL betting research. Removes bookmaker vig from Pinnacle sharp lines to derive no-vig fair probabilities, surfaces closing line value opportunities via Claude forced tool call, LangGraph HITL approval gate before bet slip prep. Stripe billing. 189 tests.
 
-**[TitleTrace](https://github.com/coreystevensdev/titletrace):** LangGraph property title agent for PA and NJ. Parallel Send API fan-out across 6 data sources (FEMA NFHL, Philadelphia OPA, ATTOM Data), Claude synthesis via forced tool call. 33 tests.
+**[TitleTrace](https://github.com/coreystevensdev/titletrace):** LangGraph property title agent for PA and NJ. Parallel Send API fan-out across 6 data sources (FEMA NFHL, Philadelphia OPA, ATTOM Data), Claude synthesis via forced tool call. 40 tests.
 
 **[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live demo](https://tellsight.coreystevens.dev)): Multi-tenant analytics SaaS for small businesses. Three-stage curation pipeline (compute stats, score by relevance, assemble prompt), SSE streaming, BullMQ weekly digest, offline eval harness, Stripe billing, row-level security. 1,628 Vitest tests + Playwright E2E.
 
@@ -22,7 +22,7 @@ CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScr
 
 **[bondcalc](https://github.com/coreystevensdev/bondcalc):** Go bond calculator. YTM via Newton-Raphson iteration, Macaulay and modified duration. JWT auth, distroless container, AWS ECS Fargate + Terraform. 18 tests.
 
-**[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer):** ASP.NET Core 8 REST API. MediatR CQRS, drift detection, rebalancing order generation. TestContainers integration tests hit a real PostgreSQL container. EC2 + Terraform, GitHub Actions OIDC (no stored AWS credentials). 19 tests.
+**[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer):** ASP.NET Core 8 REST API. MediatR CQRS, drift detection, rebalancing order generation. TestContainers integration tests hit a real PostgreSQL container. EC2 + Terraform, GitHub Actions OIDC (no stored AWS credentials). 25 tests.
 
 **[titlerate-java](https://github.com/coreystevensdev/titlerate-java) / [titlerate-dotnet](https://github.com/coreystevensdev/titlerate-dotnet):** Title insurance premium calculators. Spring Boot 3.3 + Spring Security JWT (Java) and ASP.NET Core 9 Minimal API + EF Core (C#). Multi-tier bracket accumulation for state-filed PA and NJ rate schedules, JWT auth, PostgreSQL.
 
