@@ -1,4 +1,4 @@
-# Hey, Im Corey!
+# Corey Stevens
 
 Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
@@ -21,8 +21,6 @@ Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 **[bondcalc](https://github.com/coreystevensdev/bondcalc):** Go bond calculator. YTM via Newton-Raphson iteration, Macaulay and modified duration. JWT auth, distroless container, AWS ECS Fargate + Terraform. 18 tests.
 
 **[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer):** ASP.NET Core 8 REST API. MediatR CQRS, drift detection, rebalancing order generation. TestContainers integration tests hit a real PostgreSQL container. EC2 + Terraform, GitHub Actions OIDC (no stored AWS credentials). 25 tests.
-
-**titlerate-java / titlerate-dotnet (private):** Title insurance premium calculators. Spring Boot 3.3 + Spring Security JWT (Java) and ASP.NET Core 9 Minimal API + EF Core (C#). Multi-tier bracket accumulation for state-filed PA and NJ rate schedules, JWT auth, PostgreSQL.
 
 **[rolling-cost-cap](https://github.com/coreystevensdev/rolling-cost-cap):** Published Python library on PyPI. Rolling-median anomaly cap for LLM and metered API calls. Three independent layers: rolling median, absolute ceiling, monthly budget. Zero dependencies, thread-safe, fully typed. 27 tests.
 
