@@ -1,6 +1,6 @@
 # Corey Stevens
 
-CS degree, Philadelphia. Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
+Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Projects
 
