@@ -1,4 +1,4 @@
-# Corey Stevens
+# Hey, Im Corey!
 
 Building AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
