@@ -1,4 +1,4 @@
-Hey, thanks for stopping by. I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
+**Hey, thanks for stopping by.** I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Projects
 
