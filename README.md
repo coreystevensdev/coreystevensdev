@@ -24,7 +24,7 @@ I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 - **Languages:** Python, TypeScript, Go, Java, C#
 - **Backend:** FastAPI, Express 5, Spring Boot 3, ASP.NET Core 8, Node.js
 - **Data:** PostgreSQL, Redis, BullMQ, SQLAlchemy, EF Core, Drizzle ORM
-- **Infra:** AWS EC2, RDS, ECR, Terraform, Docker, GitHub Actions OIDC, CloudWatch
+- **Infra:** AWS EC2, RDS, ECR, Terraform, Docker, Kubernetes, Helm, GitHub Actions OIDC, CloudWatch
 - **Testing:** pytest + respx, Vitest + Playwright, TestContainers, xUnit, Ragas
 
 ## Contact
