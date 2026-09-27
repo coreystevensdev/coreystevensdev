@@ -19,6 +19,10 @@ I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 - **[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer):** ASP.NET Core 8 REST API. MediatR CQRS, drift detection, rebalancing order generation. TestContainers integration tests hit a real PostgreSQL container. EC2 + Terraform, GitHub Actions OIDC (no stored AWS credentials). 27 tests.
 - **[rolling-cost-cap](https://github.com/coreystevensdev/rolling-cost-cap):** Published Python library on PyPI. Rolling-median anomaly cap for LLM and metered API calls. Three independent layers: rolling median, absolute ceiling, monthly budget. Zero dependencies, thread-safe, fully typed. 29 tests.
 
+## Open source
+
+- **[langchain4j #5708](https://github.com/langchain4j/langchain4j/pull/5708):** `OverlapRemovingContentAggregator` for [langchain4j](https://github.com/langchain4j/langchain4j), a Java library for building LLM applications. Chunk overlap makes sequential RAG segments repeat text, and the model pays for that repetition twice. It trims the duplicated span where two adjacent segments of the same document meet, and it reads the splitter's own index metadata to decide adjacency instead of guessing from content. Decorator over any `ContentAggregator`. 15 tests. Open and awaiting review, 8/8 checks green.
+
 ## Stack
 
 - **AI:** LangGraph, LangSmith, Anthropic SDK, pgvector, Voyage AI, Ragas, RAG, HITL, SSE streaming, eval harnesses
