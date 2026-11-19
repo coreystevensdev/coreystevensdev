@@ -2,13 +2,14 @@ I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Try these first
 
-Four of these run in a browser right now, no signup:
+Five of these run in a browser right now, no signup:
 
 - **[Tellsight](https://tellsight.coreystevens.dev)** reads your business numbers and tells you what changed, in plain English. Upload a CSV or connect QuickBooks; the dashboard loads with sample data so you can see it work before signing up. [Source](https://github.com/coreystevensdev/tellsight)
 - **[InvoiceFlow](https://invoiceflow-cs.vercel.app)** turns a PDF invoice into structured JSON in about five seconds. Drop a file, or hit "Use sample". Every field shows the text it was read from. [Source](https://github.com/coreystevensdev/invoiceflow)
 
 - **[bondcalc](https://52-22-210-61.sslip.io/)** prices a bond: yield to maturity, duration, current yield. The strip under the form draws one coupon per remaining payment. [Source](https://github.com/coreystevensdev/bondcalc)
 - **[TitleRate](https://titlerate.52-22-210-61.sslip.io/)** quotes a title insurance premium for PA or NJ and shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
+- **[Fairline](https://fairline.52-22-210-61.sslip.io/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won. The pages run on seeded sample data and say so, because a betting record that is not real is a claim about performance. [Source](https://github.com/coreystevensdev/fairline)
 
 ## AI and LLM
 
@@ -16,9 +17,9 @@ Four of these run in a browser right now, no signup:
 
 Agentic RAG over 14 IRS publications: LangGraph state machine, pgvector retrieval, voyage-3 embeddings reranked by a `rerank-2` cross-encoder, LangSmith tracing, a human approval step before generation. Scored with Ragas over 50 questions: faithfulness 0.945, answer relevancy 0.633, context precision 0.857. Per-question scores are committed next to the aggregates, so a retrieval change is a paired comparison rather than two means that might differ by noise. 98 tests.
 
-**[Fairline](https://github.com/coreystevensdev/fairline)** finds sports bets priced better than the sharp market, and makes a human approve each one before it goes anywhere.
+**[Fairline](https://github.com/coreystevensdev/fairline)** ([live](https://fairline.52-22-210-61.sslip.io/)) finds sports bets priced better than the sharp market, and makes a human approve each one before it goes anywhere.
 
-Bookmaker odds carry a built-in margin called vig. Fairline strips it from Pinnacle's lines to recover the market's true implied probability, then surfaces prices that beat it. A LangGraph `interrupt()` pauses the graph for approval before any bet slip is prepared, and state persists in Postgres so an approval survives a restart. Picks are graded on closing line value rather than win rate, which is the harder standard. NFL, NBA, MLB, NHL. Stripe billing. 364 tests.
+Bookmaker odds carry a built-in margin called vig. Fairline strips it from Pinnacle's lines to recover the market's true implied probability, then surfaces prices that beat it. A LangGraph `interrupt()` pauses the graph for approval before any bet slip is prepared, and state persists in Postgres so an approval survives a restart. Picks are graded on closing line value rather than win rate, which is the harder standard. NFL, NBA, MLB, NHL. Stripe billing. 376 tests.
 
 **[TitleTrace](https://github.com/coreystevensdev/titletrace)** takes a PA or NJ street address and assembles a property title report from county, lien, and federal flood records.
 
