@@ -2,7 +2,7 @@ I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Try these first
 
-Six of these run in a browser right now, no signup:
+Seven of these run in a browser right now, no signup:
 
 - **[Tellsight](https://tellsight.coreystevens.dev)** reads your business numbers and tells you what changed, in plain English. Upload a CSV or connect QuickBooks; the dashboard loads with sample data so you can see it work before signing up. [Source](https://github.com/coreystevensdev/tellsight)
 - **[InvoiceFlow](https://invoiceflow-cs.vercel.app)** turns a PDF invoice into structured JSON in about five seconds. Drop a file, or hit "Use sample". Every field shows the text it was read from. [Source](https://github.com/coreystevensdev/invoiceflow)
@@ -11,6 +11,7 @@ Six of these run in a browser right now, no signup:
 - **[TitleRate](https://titlerate.coreystevens.dev/)** quotes a title insurance premium for PA or NJ and shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
 - **[Fairline](https://fairline.coreystevens.dev/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won. The pages run on seeded sample data and say so, because a betting record that is not real is a claim about performance. [Source](https://github.com/coreystevensdev/fairline)
 - **[TitleTrace](https://titletrace.coreystevens.dev/)** takes a PA or NJ address and assembles what the public record says: owner, deeds, liens, zoning, FEMA flood zone. The page shows the agent's five lookups running in parallel and the drill-down branch skipping itself when nothing is encumbered. [Source](https://github.com/coreystevensdev/titletrace)
+- **[Portfolio Rebalancer](https://rebalancer.coreystevens.dev/)** shows which holdings have drifted from your target allocation and what to trade to fix it, sells first so their proceeds fund the buys. The page holds a real bearer token: open a second tab and it gets a different user who cannot read the first one's holdings. [Source](https://github.com/coreystevensdev/portfolio-rebalancer)
 
 ## AI and LLM
 
@@ -44,9 +45,9 @@ Yield to maturity has no closed form for most payment schedules, so it solves by
 
 Rates are tiered, so the premium accumulates across brackets the way income tax does, and a lender policy issued alongside an owner policy takes a discount off the accumulated base. Spring Boot 3.3, stateless Spring Security JWT, Spring Data JPA, Testcontainers Postgres throughout. An unset `JWT_SECRET` signs with a random per-process key and warns, rather than falling back to one committed in the repo. 38 tests. Runs beside bondcalc on one EC2 instance, behind Caddy.
 
-**[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer)** tells you which holdings have drifted from your target allocation and what to buy or sell to get back.
+**[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer)** ([live](https://rebalancer.coreystevens.dev/)) tells you which holdings have drifted from your target allocation and what to buy or sell to get back.
 
-ASP.NET Core 10, MediatR vertical slices, EF Core 10. Sells are always sequenced before buys so the proceeds fund the purchases. Every query filters by the caller's user id at the EF level, so authentication and authorization are never separated. TestContainers integration tests run against a real PostgreSQL container. 27 tests.
+ASP.NET Core 10, MediatR vertical slices, EF Core 10. Sells are always sequenced before buys so the proceeds fund the purchases. Every query filters by the caller's user id at the EF level, so authentication and authorization are never separated. TestContainers integration tests run against a real PostgreSQL container. 41 tests.
 
 **[rolling-cost-cap](https://github.com/coreystevensdev/rolling-cost-cap)** is a published Python library that stops a runaway API bill.
 
