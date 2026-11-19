@@ -2,7 +2,7 @@ I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Try these first
 
-Seven of these run in a browser right now, no signup:
+All of these run in a browser right now, no signup:
 
 - **[Tellsight](https://tellsight.coreystevens.dev)** reads your business numbers and tells you what changed, in plain English. Upload a CSV or connect QuickBooks; the dashboard loads with sample data so you can see it work before signing up. [Source](https://github.com/coreystevensdev/tellsight)
 - **[InvoiceFlow](https://invoiceflow-cs.vercel.app)** turns a PDF invoice into structured JSON in about five seconds. Drop a file, or hit "Use sample". Every field shows the text it was read from. [Source](https://github.com/coreystevensdev/invoiceflow)
@@ -11,13 +11,14 @@ Seven of these run in a browser right now, no signup:
 - **[TitleRate](https://titlerate.coreystevens.dev/)** quotes a title insurance premium for PA or NJ and shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
 - **[Fairline](https://fairline.coreystevens.dev/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won. The pages run on seeded sample data and say so, because a betting record that is not real is a claim about performance. [Source](https://github.com/coreystevensdev/fairline)
 - **[TitleTrace](https://titletrace.coreystevens.dev/)** takes a PA or NJ address and assembles what the public record says: owner, deeds, liens, zoning, FEMA flood zone. The page shows the agent's five lookups running in parallel and the drill-down branch skipping itself when nothing is encumbered. [Source](https://github.com/coreystevensdev/titletrace)
+- **[TaxCite](https://taxcite.coreystevens.dev/)** answers tax questions from IRS publications and cites the page it used. The page opens on the eval: 50 real questions with the answer given, the passages retrieval pulled, and what each one scored, sorted worst first. [Source](https://github.com/coreystevensdev/taxcite)
 - **[Portfolio Rebalancer](https://rebalancer.coreystevens.dev/)** shows which holdings have drifted from your target allocation and what to trade to fix it, sells first so their proceeds fund the buys. The page holds a real bearer token: open a second tab and it gets a different user who cannot read the first one's holdings. [Source](https://github.com/coreystevensdev/portfolio-rebalancer)
 
 ## AI and LLM
 
-**[TaxCite](https://github.com/coreystevensdev/taxcite)** answers a tax question and cites the IRS publication and page the answer came from, so you can go check it.
+**[TaxCite](https://github.com/coreystevensdev/taxcite)** ([live](https://taxcite.coreystevens.dev/)) answers a tax question and cites the IRS publication and page the answer came from, so you can go check it.
 
-Agentic RAG over 14 IRS publications: LangGraph state machine, pgvector retrieval, voyage-3 embeddings reranked by a `rerank-2` cross-encoder, LangSmith tracing, a human approval step before generation. Scored with Ragas over 50 questions: faithfulness 0.945, answer relevancy 0.633, context precision 0.857. Per-question scores are committed next to the aggregates, so a retrieval change is a paired comparison rather than two means that might differ by noise. 98 tests.
+Agentic RAG over 14 IRS publications: LangGraph state machine, pgvector retrieval, voyage-3 embeddings reranked by a `rerank-2` cross-encoder, LangSmith tracing, a human approval step before generation. Scored with Ragas over 50 questions: faithfulness 0.945, answer relevancy 0.633, context precision 0.857. Per-question scores are committed next to the aggregates, so a retrieval change is a paired comparison rather than two means that might differ by noise. 110 tests.
 
 **[Fairline](https://github.com/coreystevensdev/fairline)** ([live](https://fairline.coreystevens.dev/)) finds sports bets priced better than the sharp market, and makes a human approve each one before it goes anywhere.
 
