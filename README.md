@@ -2,7 +2,7 @@ I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
 ## Try these first
 
-Five of these run in a browser right now, no signup:
+Six of these run in a browser right now, no signup:
 
 - **[Tellsight](https://tellsight.coreystevens.dev)** reads your business numbers and tells you what changed, in plain English. Upload a CSV or connect QuickBooks; the dashboard loads with sample data so you can see it work before signing up. [Source](https://github.com/coreystevensdev/tellsight)
 - **[InvoiceFlow](https://invoiceflow-cs.vercel.app)** turns a PDF invoice into structured JSON in about five seconds. Drop a file, or hit "Use sample". Every field shows the text it was read from. [Source](https://github.com/coreystevensdev/invoiceflow)
@@ -10,6 +10,7 @@ Five of these run in a browser right now, no signup:
 - **[bondcalc](https://bondcalc.coreystevens.dev/)** prices a bond: yield to maturity, duration, current yield. The strip under the form draws one coupon per remaining payment. [Source](https://github.com/coreystevensdev/bondcalc)
 - **[TitleRate](https://titlerate.coreystevens.dev/)** quotes a title insurance premium for PA or NJ and shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
 - **[Fairline](https://fairline.coreystevens.dev/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won. The pages run on seeded sample data and say so, because a betting record that is not real is a claim about performance. [Source](https://github.com/coreystevensdev/fairline)
+- **[TitleTrace](https://titletrace.coreystevens.dev/)** takes a PA or NJ address and assembles what the public record says: owner, deeds, liens, zoning, FEMA flood zone. The page shows the agent's five lookups running in parallel and the drill-down branch skipping itself when nothing is encumbered. [Source](https://github.com/coreystevensdev/titletrace)
 
 ## AI and LLM
 
@@ -21,9 +22,9 @@ Agentic RAG over 14 IRS publications: LangGraph state machine, pgvector retrieva
 
 Bookmaker odds carry a built-in margin called vig. Fairline strips it from Pinnacle's lines to recover the market's true implied probability, then surfaces prices that beat it. A LangGraph `interrupt()` pauses the graph for approval before any bet slip is prepared, and state persists in Postgres so an approval survives a restart. Picks are graded on closing line value rather than win rate, which is the harder standard. NFL, NBA, MLB, NHL. Stripe billing. 376 tests.
 
-**[TitleTrace](https://github.com/coreystevensdev/titletrace)** takes a PA or NJ street address and assembles a property title report from county, lien, and federal flood records.
+**[TitleTrace](https://github.com/coreystevensdev/titletrace)** ([live](https://titletrace.coreystevens.dev/)) takes a PA or NJ street address and assembles a property title report from county, lien, and federal flood records.
 
-A LangGraph agent fans five lookups out in parallel via the Send API (parcel, ownership, liens, zoning, FEMA flood zone), then conditionally drills into lienholder detail and tax delinquency based on what comes back. Philadelphia routes through the free OPA and OpenDataPhilly APIs; everything else uses ATTOM. Claude synthesizes the report through a forced tool call and names the gaps in the data rather than filling them in. 68 tests.
+A LangGraph agent fans five lookups out in parallel via the Send API (parcel, ownership, liens, zoning, FEMA flood zone), then conditionally drills into lienholder detail and tax delinquency based on what comes back. Philadelphia routes through the free OPA and OpenDataPhilly APIs; everything else uses ATTOM. Claude synthesizes the report through a forced tool call and names the gaps in the data rather than filling them in. 106 tests.
 
 **[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live](https://tellsight.coreystevens.dev)) is multi-tenant analytics for small businesses, with a weekly email that explains what moved and why.
 
