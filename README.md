@@ -7,9 +7,9 @@ Five of these run in a browser right now, no signup:
 - **[Tellsight](https://tellsight.coreystevens.dev)** reads your business numbers and tells you what changed, in plain English. Upload a CSV or connect QuickBooks; the dashboard loads with sample data so you can see it work before signing up. [Source](https://github.com/coreystevensdev/tellsight)
 - **[InvoiceFlow](https://invoiceflow-cs.vercel.app)** turns a PDF invoice into structured JSON in about five seconds. Drop a file, or hit "Use sample". Every field shows the text it was read from. [Source](https://github.com/coreystevensdev/invoiceflow)
 
-- **[bondcalc](https://52-22-210-61.sslip.io/)** prices a bond: yield to maturity, duration, current yield. The strip under the form draws one coupon per remaining payment. [Source](https://github.com/coreystevensdev/bondcalc)
-- **[TitleRate](https://titlerate.52-22-210-61.sslip.io/)** quotes a title insurance premium for PA or NJ and shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
-- **[Fairline](https://fairline.52-22-210-61.sslip.io/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won. The pages run on seeded sample data and say so, because a betting record that is not real is a claim about performance. [Source](https://github.com/coreystevensdev/fairline)
+- **[bondcalc](https://bondcalc.coreystevens.dev/)** prices a bond: yield to maturity, duration, current yield. The strip under the form draws one coupon per remaining payment. [Source](https://github.com/coreystevensdev/bondcalc)
+- **[TitleRate](https://titlerate.coreystevens.dev/)** quotes a title insurance premium for PA or NJ and shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
+- **[Fairline](https://fairline.coreystevens.dev/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won. The pages run on seeded sample data and say so, because a betting record that is not real is a claim about performance. [Source](https://github.com/coreystevensdev/fairline)
 
 ## AI and LLM
 
@@ -17,7 +17,7 @@ Five of these run in a browser right now, no signup:
 
 Agentic RAG over 14 IRS publications: LangGraph state machine, pgvector retrieval, voyage-3 embeddings reranked by a `rerank-2` cross-encoder, LangSmith tracing, a human approval step before generation. Scored with Ragas over 50 questions: faithfulness 0.945, answer relevancy 0.633, context precision 0.857. Per-question scores are committed next to the aggregates, so a retrieval change is a paired comparison rather than two means that might differ by noise. 98 tests.
 
-**[Fairline](https://github.com/coreystevensdev/fairline)** ([live](https://fairline.52-22-210-61.sslip.io/)) finds sports bets priced better than the sharp market, and makes a human approve each one before it goes anywhere.
+**[Fairline](https://github.com/coreystevensdev/fairline)** ([live](https://fairline.coreystevens.dev/)) finds sports bets priced better than the sharp market, and makes a human approve each one before it goes anywhere.
 
 Bookmaker odds carry a built-in margin called vig. Fairline strips it from Pinnacle's lines to recover the market's true implied probability, then surfaces prices that beat it. A LangGraph `interrupt()` pauses the graph for approval before any bet slip is prepared, and state persists in Postgres so an approval survives a restart. Picks are graded on closing line value rather than win rate, which is the harder standard. NFL, NBA, MLB, NHL. Stripe billing. 376 tests.
 
@@ -27,7 +27,7 @@ A LangGraph agent fans five lookups out in parallel via the Send API (parcel, ow
 
 **[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live](https://tellsight.coreystevens.dev)) is multi-tenant analytics for small businesses, with a weekly email that explains what moved and why.
 
-Three-stage curation pipeline: compute statistics, score them for relevance, assemble the prompt. The function that builds the prompt accepts computed statistics and not data rows, so raw customer transactions cannot reach the model; the privacy boundary is enforced by the type system rather than by code review. Row-level security lives in PostgreSQL rather than the application layer. SSE streaming, a four-queue BullMQ digest pipeline, an offline eval harness, Stripe billing. Running on EC2 and RDS. 5,445 tests.
+Three-stage curation pipeline: compute statistics, score them for relevance, assemble the prompt. The function that builds the prompt accepts computed statistics and not data rows, so raw customer transactions cannot reach the model; the privacy boundary is enforced by the type system rather than by code review. Row-level security lives in PostgreSQL rather than the application layer. SSE streaming, a four-queue BullMQ digest pipeline, an offline eval harness, Stripe billing. Running on EC2 and RDS. 5,506 tests.
 
 ## Backend and APIs
 
@@ -35,11 +35,11 @@ Three-stage curation pipeline: compute statistics, score them for relevance, ass
 
 Next.js 16 and the Anthropic SDK with a Zod schema enforced at the SDK boundary. Nothing is stored: no database, no file persistence, no log line containing invoice content, which is a property of the codebase rather than a policy, since no database dependency exists in it at all. Eight typed error codes, each mapped to a title and a next step. 160 tests.
 
-**[bondcalc](https://github.com/coreystevensdev/bondcalc)** ([live](https://52-22-210-61.sslip.io/)) prices a bond: what it yields if you hold it to maturity, and how much its price moves when rates move.
+**[bondcalc](https://github.com/coreystevensdev/bondcalc)** ([live](https://bondcalc.coreystevens.dev/)) prices a bond: what it yields if you hold it to maturity, and how much its price moves when rates move.
 
 Yield to maturity has no closed form for most payment schedules, so it solves by Newton-Raphson, converging in about ten iterations. Duration discounts each cash flow at the solved yield. Go, no database, distroless container, JWT auth, deployed to EC2 by Terraform with GitHub Actions OIDC and no stored AWS credentials. 36 tests.
 
-**[titlerate-java](https://github.com/coreystevensdev/titlerate-java)** ([live](https://titlerate.52-22-210-61.sslip.io/)) quotes a title insurance premium for PA or NJ from the state's filed rate schedule.
+**[titlerate-java](https://github.com/coreystevensdev/titlerate-java)** ([live](https://titlerate.coreystevens.dev/)) quotes a title insurance premium for PA or NJ from the state's filed rate schedule.
 
 Rates are tiered, so the premium accumulates across brackets the way income tax does, and a lender policy issued alongside an owner policy takes a discount off the accumulated base. Spring Boot 3.3, stateless Spring Security JWT, Spring Data JPA, Testcontainers Postgres throughout. An unset `JWT_SECRET` signs with a random per-process key and warns, rather than falling back to one committed in the repo. 38 tests. Runs beside bondcalc on one EC2 instance, behind Caddy.
 
