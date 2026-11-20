@@ -29,7 +29,7 @@ Nothing is stored. No database, no file persistence, no log line containing invo
 
 ## How I work with AI assistants
 
-These are built with heavy AI assistance, which is worth saying plainly because the interesting work is what has to exist around a model to make its output safe to ship. Each repo has a "How this was built" section naming what the model got wrong and what caught it. The short version: AI output is validated against a known-good set before it is stored, prompts are graded by a judge model that is deliberately not the model being graded, and published numbers get revised in public when a larger sample disagrees with them.
+These are built with AI assistance, which is worth saying plainly because the interesting work is what has to exist around a model to make its output safe to ship. Each repo has a "How this was built" section naming what the model got wrong and what caught it. The short version: AI output is validated against a known-good set before it is stored, prompts are graded by a judge model that is deliberately not the model being graded, and published numbers get revised in public when a larger sample disagrees with them.
 
 ## Open source
 
