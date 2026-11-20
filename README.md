@@ -1,60 +1,35 @@
 I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
-Based in Philadelphia, open to Software Engineer and AI Engineer roles, remote or around PA, DE, NJ and DC. Everything linked below is live. [Get in touch](#contact).
+Based in Philadelphia, open to Software Engineer and AI Engineer roles, remote or around PA, DE, NJ and DC. Everything linked below is live and runs in a browser with no signup. [Get in touch](#contact).
 
-## Try these first
+## Start here
 
-All of these run in a browser right now, no signup:
+Three that show the most. All nine are listed further down.
 
-- **[Tellsight](https://tellsight.coreystevens.dev)** reads your business numbers and tells you what changed, in plain English. Upload a CSV or connect QuickBooks; the dashboard loads with sample data so you can see it work before signing up. [Source](https://github.com/coreystevensdev/tellsight)
-- **[InvoiceFlow](https://invoiceflow-cs.vercel.app)** turns a PDF invoice into structured JSON in about five seconds. Drop a file, or hit "Use sample". Every field shows the text it was read from. [Source](https://github.com/coreystevensdev/invoiceflow)
+**[TaxCite](https://taxcite.coreystevens.dev/)** answers a tax question from the IRS publications and names the page it used, so you can go read the source instead of trusting the model. [Source](https://github.com/coreystevensdev/taxcite)
 
-- **[bondcalc](https://bondcalc.coreystevens.dev/)** prices a bond: yield to maturity, duration, current yield. The strip under the form draws one coupon per remaining payment. [Source](https://github.com/coreystevensdev/bondcalc)
-- **[TitleRate](https://titlerate.coreystevens.dev/)** quotes a title insurance premium for PA or NJ and shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
-- **[Fairline](https://fairline.coreystevens.dev/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won. The pages run on seeded sample data and say so, because a betting record that is not real is a claim about performance. [Source](https://github.com/coreystevensdev/fairline)
-- **[TitleTrace](https://titletrace.coreystevens.dev/)** takes a PA or NJ address and assembles what the public record says: owner, deeds, liens, zoning, FEMA flood zone. The page shows the agent's five lookups running in parallel and the drill-down branch skipping itself when nothing is encumbered. [Source](https://github.com/coreystevensdev/titletrace)
-- **[TaxCite](https://taxcite.coreystevens.dev/)** answers tax questions from IRS publications and cites the page it used. The page opens on the eval: 50 real questions with the answer given, the passages retrieval pulled, and what each one scored, sorted worst first. [Source](https://github.com/coreystevensdev/taxcite)
-- **[Portfolio Rebalancer](https://rebalancer.coreystevens.dev/)** shows which holdings have drifted from your target allocation and what to trade to fix it, sells first so their proceeds fund the buys. The page holds a real bearer token: open a second tab and it gets a different user who cannot read the first one's holdings. [Source](https://github.com/coreystevensdev/portfolio-rebalancer)
+The hard part is not producing an answer, it is making sure the answer came from the right passage. Searching by meaning alone scores a question and a passage separately, which measures what a passage is *about* rather than whether it answers *this* question, so retrieval pulls 24 candidates and a second model reads each question-passage pair together to pick the 8 worth sending. Quality is measured rather than asserted: 50 questions scored for faithfulness (0.945), context precision (0.857) and answer relevancy (0.633), with every question's individual score committed beside the aggregate so a change to retrieval is a paired comparison rather than two averages that might differ by luck. The page opens on that eval, worst question first. LangGraph, pgvector, Voyage embeddings, Ragas, and a human approval step before anything is generated. 121 tests.
 
-## AI and LLM
+**[Tellsight](https://tellsight.coreystevens.dev)** reads a small business's numbers and says what changed and what it means, then emails that explanation weekly. Upload a CSV or connect QuickBooks; the dashboard loads with sample data so you can see it work first. [Source](https://github.com/coreystevensdev/tellsight)
 
-**[TaxCite](https://github.com/coreystevensdev/taxcite)** ([live](https://taxcite.coreystevens.dev/)) answers a tax question and cites the IRS publication and page the answer came from, so you can go check it.
+The model never sees a customer's transactions. The function that builds the prompt accepts computed statistics and will not accept data rows, so the privacy boundary is a type signature rather than a code-review habit. Tenant isolation lives in PostgreSQL itself rather than in application code, which means a missing `WHERE` clause in a query cannot leak another business's data. Three-stage pipeline: compute the statistics, score them for what an owner would actually care about, then assemble the prompt. Streaming summaries, a four-queue background pipeline for the weekly digest, an offline eval harness with a judge model deliberately different from the one being graded, Stripe billing. Running on EC2 and RDS. 5,782 tests.
 
-Agentic RAG over 14 IRS publications: LangGraph state machine, pgvector retrieval, voyage-3 embeddings reranked by a `rerank-2` cross-encoder, LangSmith tracing, a human approval step before generation. Scored with Ragas over 50 questions: faithfulness 0.945, answer relevancy 0.633, context precision 0.857. Per-question scores are committed next to the aggregates, so a retrieval change is a paired comparison rather than two means that might differ by noise. 110 tests.
+**[InvoiceFlow](https://invoiceflow-cs.vercel.app)** turns a PDF invoice into structured JSON in about five seconds. Drop a file or hit "Use sample", and every extracted field shows the source text it was read from. [Source](https://github.com/coreystevensdev/invoiceflow)
 
-**[Fairline](https://github.com/coreystevensdev/fairline)** ([live](https://fairline.coreystevens.dev/)) finds sports bets priced better than the sharp market, and makes a human approve each one before it goes anywhere.
+Nothing is stored. No database, no file persistence, no log line containing invoice content, and that is a property of the codebase rather than a policy: no database dependency exists in it at all. The schema is enforced where the model's response arrives, so a malformed reply never reaches application code, and ten typed error codes each map to a title and a next step so a failure explains itself. Measured against 150 ground-truth invoices across nine fields each. 160 tests.
 
-Bookmaker odds carry a built-in margin called vig. Fairline strips it from Pinnacle's lines to recover the market's true implied probability, then surfaces prices that beat it. A LangGraph `interrupt()` pauses the graph for approval before any bet slip is prepared, and state persists in Postgres so an approval survives a restart. Picks are graded on closing line value rather than win rate, which is the harder standard. NFL, NBA, MLB, NHL. Stripe billing. 376 tests.
+## Six more, all live
 
-**[TitleTrace](https://github.com/coreystevensdev/titletrace)** ([live](https://titletrace.coreystevens.dev/)) takes a PA or NJ street address and assembles a property title report from county, lien, and federal flood records.
+- **[Fairline](https://fairline.coreystevens.dev/)** grades sports bets on whether the price beat where the market closed, not on whether the bet won, which is the harder standard. A human approves every pick before it goes anywhere. [Source](https://github.com/coreystevensdev/fairline)
+- **[TitleTrace](https://titletrace.coreystevens.dev/)** takes a PA or NJ address and assembles what the public record says: owner, deeds, liens, zoning, flood zone. An agent fires five record lookups at once rather than in sequence, then chases detail only where there is something to chase. [Source](https://github.com/coreystevensdev/titletrace)
+- **[Portfolio Rebalancer](https://rebalancer.coreystevens.dev/)** shows which holdings have drifted from your target allocation and what to trade to fix it, sells sequenced first so their proceeds fund the buys. Open a second tab and you get a different user who cannot see the first one's holdings. [Source](https://github.com/coreystevensdev/portfolio-rebalancer)
+- **[TitleRate](https://titlerate.coreystevens.dev/)** quotes a title insurance premium for PA or NJ. Rates are tiered, so the premium accumulates across brackets the way income tax does, and the page shows which bracket each part of the price landed in. [Source](https://github.com/coreystevensdev/titlerate-java)
+- **[bondcalc](https://bondcalc.coreystevens.dev/)** prices a bond: what it yields if held to maturity, and how much its price moves when rates move. Yield to maturity has no closed-form solution for most payment schedules, so it is solved by iteration. [Source](https://github.com/coreystevensdev/bondcalc)
+- **[rolling-cost-cap](https://github.com/coreystevensdev/rolling-cost-cap)** is a published Python library that stops a runaway API bill. "Expensive" is relative: ten cents is an anomaly when your median call costs two, and normal when it costs eight. So it tracks a rolling median and trips on a multiple of it, behind an absolute per-call ceiling and a monthly budget. `pip install rolling-cost-cap`
 
-A LangGraph agent fans five lookups out in parallel via the Send API (parcel, ownership, liens, zoning, FEMA flood zone), then conditionally drills into lienholder detail and tax delinquency based on what comes back. Philadelphia routes through the free OPA and OpenDataPhilly APIs; everything else uses ATTOM. Claude synthesizes the report through a forced tool call and names the gaps in the data rather than filling them in. 106 tests.
+## How I work with AI assistants
 
-**[Tellsight](https://github.com/coreystevensdev/tellsight)** ([live](https://tellsight.coreystevens.dev)) is multi-tenant analytics for small businesses, with a weekly email that explains what moved and why.
-
-Three-stage curation pipeline: compute statistics, score them for relevance, assemble the prompt. The function that builds the prompt accepts computed statistics and not data rows, so raw customer transactions cannot reach the model; the privacy boundary is enforced by the type system rather than by code review. Row-level security lives in PostgreSQL rather than the application layer. SSE streaming, a four-queue BullMQ digest pipeline, an offline eval harness, Stripe billing. Running on EC2 and RDS. 5,506 tests.
-
-## Backend and APIs
-
-**[InvoiceFlow](https://github.com/coreystevensdev/invoiceflow)** ([live](https://invoiceflow-cs.vercel.app)) extracts vendor, line items, tax, total and due date from a PDF invoice, and shows the source text behind each one.
-
-Next.js 16 and the Anthropic SDK with a Zod schema enforced at the SDK boundary. Nothing is stored: no database, no file persistence, no log line containing invoice content, which is a property of the codebase rather than a policy, since no database dependency exists in it at all. Eight typed error codes, each mapped to a title and a next step. 160 tests.
-
-**[bondcalc](https://github.com/coreystevensdev/bondcalc)** ([live](https://bondcalc.coreystevens.dev/)) prices a bond: what it yields if you hold it to maturity, and how much its price moves when rates move.
-
-Yield to maturity has no closed form for most payment schedules, so it solves by Newton-Raphson, converging in about ten iterations. Duration discounts each cash flow at the solved yield. Go, no database, distroless container, JWT auth, deployed to EC2 by Terraform with GitHub Actions OIDC and no stored AWS credentials. 36 tests.
-
-**[titlerate-java](https://github.com/coreystevensdev/titlerate-java)** ([live](https://titlerate.coreystevens.dev/)) quotes a title insurance premium for PA or NJ from the state's filed rate schedule.
-
-Rates are tiered, so the premium accumulates across brackets the way income tax does, and a lender policy issued alongside an owner policy takes a discount off the accumulated base. Spring Boot 3.3, stateless Spring Security JWT, Spring Data JPA, Testcontainers Postgres throughout. An unset `JWT_SECRET` signs with a random per-process key and warns, rather than falling back to one committed in the repo. 38 tests. Runs beside bondcalc on one EC2 instance, behind Caddy.
-
-**[portfolio-rebalancer](https://github.com/coreystevensdev/portfolio-rebalancer)** ([live](https://rebalancer.coreystevens.dev/)) tells you which holdings have drifted from your target allocation and what to buy or sell to get back.
-
-ASP.NET Core 10, MediatR vertical slices, EF Core 10. Sells are always sequenced before buys so the proceeds fund the purchases. Every query filters by the caller's user id at the EF level, so authentication and authorization are never separated. TestContainers integration tests run against a real PostgreSQL container. 41 tests.
-
-**[rolling-cost-cap](https://github.com/coreystevensdev/rolling-cost-cap)** is a published Python library that stops a runaway API bill.
-
-"Expensive" is relative: ten cents is an anomaly when your median call costs two, and normal when it costs eight. So it tracks a rolling median and trips when a call exceeds a multiple of it, backed by an absolute per-call ceiling and a monthly budget. The median layer stays dormant until enough samples exist, so one cheap first call cannot set a hair-trigger baseline. Zero dependencies, thread-safe, fully typed. `pip install rolling-cost-cap`. 29 tests.
+These are built with heavy AI assistance, which is worth saying plainly because the interesting work is what has to exist around a model to make its output safe to ship. Each repo has a "How this was built" section naming what the model got wrong and what caught it. The short version: AI output is validated against a known-good set before it is stored, prompts are graded by a judge model that is deliberately not the model being graded, and published numbers get revised in public when a larger sample disagrees with them.
 
 ## Open source
 
@@ -67,7 +42,7 @@ ASP.NET Core 10, MediatR vertical slices, EF Core 10. Sells are always sequenced
 - **Backend:** FastAPI, Express 5, Spring Boot 3, ASP.NET Core, Node.js
 - **Data:** PostgreSQL, Redis, BullMQ, SQLAlchemy, EF Core, Drizzle ORM
 - **Infra:** AWS EC2, RDS, ECR, Terraform, Docker, Kubernetes, Helm, GitHub Actions OIDC, CloudWatch
-- **Testing:** pytest + respx, Vitest + Playwright, TestContainers, xUnit, Ragas
+- **Testing:** pytest + respx, Vitest + Playwright, Testcontainers, xUnit, Ragas
 
 ## Contact
 
