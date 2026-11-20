@@ -1,5 +1,7 @@
 I build AI systems and backend APIs in Python, TypeScript, Go, Java, and C#.
 
+Based in Philadelphia, open to Software Engineer and AI Engineer roles, remote or around PA, DE, NJ and DC. Everything linked below is live. [Get in touch](#contact).
+
 ## Try these first
 
 All of these run in a browser right now, no signup:
